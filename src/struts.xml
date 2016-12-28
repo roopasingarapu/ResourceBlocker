@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="/" extends="struts-default">
+
+<action name="loginaction" class="com.blocker.action.LoginAction" method="login">
+			<result name="success">/AdminHome.jsp</result>
+            <result name="change">/ChangePassword.jsp</result>
+			<result name="admin">/AdminHome.jsp</result>
+			<result name="user">/UserHome.jsp</result>
+			<result name="invalid">/Login.jsp</result>
+			<result name="error">/Login.jsp</result>
+			<result name="input">/Login.jsp</result>
+        </action>
+
+		<action name="changepassword" class="com.blocker.action.LoginAction" method="changePassword">
+ 			<result name="success">/AdminHome.jsp</result>
+ 			<result name="user">/UserHome.jsp</result>
+  			<result name="failure">/ChangePassword.jsp</result>
+  			<result name="input">/ChangePassword.jsp</result>
+ 		 </action>
+
+
+
+ 		<action name="addlookups" class="com.blocker.action.AddModifyLookupsAction" method="add">
+  			<result name="success">/ShowLookups.jsp</result>
+  			<result name="invalid">/AddLookups.jsp</result>
+  			<result name="failure">/AddLookups.jsp</result>
+  			<result name="input">/AddLookups.jsp</result>
+  			<result name="session">/Login.jsp</result>
+  		</action>
+
+  		<action name="LookupsAutocompleter" class="com.blocker.action.LookupsAutocompleter" >
+  			<result name="success">/ModifyLookups.jsp</result>
+  			<result name="invalid">/ModifyLookups.jsp</result>
+  		</action>
+
+  		<action name="AddModifyLookupsAction" class="com.blocker.action.AddModifyLookupsAction" method="modifyLookups">
+  			<result name="success">/ShowModifiedLookups.jsp</result>
+  			<result name="invalid">/ModifyLookups.jsp</result>
+  			<result name="failure">/ModifyLookups.jsp</result>
+  			<result name="input">/ModifyLookups.jsp</result>
+  			<result name="session">/Login.jsp</result>
+  		</action>
+
+  		<action name="domodifylookups" class="com.blocker.action.AddModifyLookupsAction" method="doModifyLookups">
+  			<result name="success">/DescModifiedLookups.jsp</result>
+  			<result name="invalid">/ShowModifiedLookups.jsp</result>
+  			<result name="failure">/ShowModifiedLookups.jsp</result>
+  			<result name="input">/ShowModifiedLookups.jsp</result>
+  		</action>
+
+
+
+
+ 		 <action name="autocompletertype" class="com.blocker.action.AutoCompleter" method="autoType" >
+  			<result name="success">/DisplayResources.jsp</result>
+ 		 </action>
+
+ 		 <action name="autocompleterlocation" class="com.blocker.action.AutoCompleter" method="autoLocation">
+  			<result name="success">/DisplayResources.jsp</result>
+ 		 </action>
+
+ 		 <action name="addloc" class="com.blocker.action.AddModifyResourcesAction" method="addLoc">
+  			<result name="success">/AddResources.jsp</result>
+  		</action>
+
+  		<action name="addresources" class="com.blocker.action.AddModifyResourcesAction" method="addResources">
+  			<result name="success">/ShowResources.jsp</result>
+  			<result name="invalid">/AddResources.jsp</result>
+  			<result name="failure">/AddResources.jsp</result>
+  			<result name="input">/AddResources.jsp</result>
+  		</action>
+
+
+
+
+  		<action name="resourceauto" class="com.blocker.action.AutoCompleter" method="resourceIdAuto">
+  			<result name="success">/ResourceModify.jsp</result>
+  			<result name="invalid">/ResourceModify.jsp</result>
+ 		 </action>
+
+  		<action name="modifyresource" class="com.blocker.action.AddModifyResourcesAction" method="getModifyResources">
+  			<result name="success">/ResourceModify.jsp</result>
+  			<result name="invalid">/ResourceModify.jsp</result>
+  			<result name="failure">/ResourceModify.jsp</result>
+  			<result name="input">/ResourceModify.jsp</result>
+ 		 </action>
+
+         <action name="getmodify" class="com.blocker.action.AddModifyResourcesAction" method="getModifiedResources">
+  			<result name="success">/ShowModifiedResources.jsp</result>
+  			<result name="invalid">/ResourceModify.jsp</result>
+  			<result name="failure">/ResourceModify.jsp</result>
+  			<result name="input">/ResourceModify.jsp</result>
+ 		 </action>
+
+
+
+  		 <action name="addusers" class="com.blocker.action.AddModifyUsersAction" method="addUsers">
+  			<result name="success">/ShowUsers.jsp</result>
+  			<result name="invalid">/AddUsers.jsp</result>
+  			<result name="failure">/AddUsers.jsp</result>
+  			<result name="input">/AddUsers.jsp</result>
+  		</action>
+
+
+
+
+		<action name="AddModifyUsers" class="com.blocker.action.AutoCompleter" method=" retrieveUserId">
+  			<result name="success">/ModifyUsers.jsp</result>
+ 		 </action>
+
+ 		 <action name="modifyusers" class="com.blocker.action.AddModifyUsersAction" method="modifyUsers">
+  			<result name="success">/ShowModifiedUsers.jsp</result>
+  			<result name="invalid">/ModifyUsers.jsp</result>
+  			<result name="failure">/ModifyUsers.jsp</result>
+  			<result name="input">/ModifyUsers.jsp</result>
+  		</action>
+
+  		<action name="domodifyusers" class="com.blocker.action.AddModifyUsersAction" method="doModifyUsers">
+  			<result name="success">/Success.jsp</result>
+  			<result name="invalid">/ShowModifiedUsers.jsp</result>
+  			<result name="failure">/ShowModifiedUsers.jsp</result>
+  			<result name="input">/ShowModifiedUsers.jsp</result>
+  		</action>
+
+
+
+  		<action name="autocompletername" class="com.blocker.action.AutoCompleter" method="retrieveResName">
+  			<result name="success">/UserRes.jsp</result>
+  		</action>
+
+  			<action name="resourcedetails" class="com.blocker.action.AddModifyResourcesAction" method="getResourceDetails">
+  			<result name="success">/UserRes1.jsp</result>
+  			<result name="failure">/UserRes.jsp</result>
+  			<result name="invalid">/UserRes.jsp</result>
+  		</action>
+
+  			<action name="reserve" class="com.blocker.action.AddModifyResourcesAction" method="reserveDetails">
+  			<result name="success">/UserRes2.jsp</result>
+  			 <result name="failure">/UserRes1.jsp</result>
+  			 <result name="input">/UserRes1.jsp</result>
+  		</action>
+
+
+  		<action name="Cancel" class="com.blocker.action.AutoCompleter">
+  			<result name="success">/cancelAutoCom.jsp</result>
+ 		 </action>
+
+ 		 <action name="showcancel" class="com.blocker.action.AutoCompleter" method="showCancel">
+  			<result name="success">/ShowCancel.jsp</result>
+  			<result name="input">/cancelAutoCom.jsp</result>
+ 		 </action>
+  		<action name="cancelaction" class="com.blocker.action.CancelAction" method="cancelRes">
+  			<result name="success">/Cancel.jsp</result>
+  			<result name="error">/ShowCancel.jsp</result>
+  		</action>
+
+
+
+  		<action name="CancelUser" class="com.blocker.action.AutoCompleter" method="cancelUser">
+  			<result name="success">/CancelUser.jsp</result>
+ 		 </action>
+
+<action name="exportdetails" class="com.blocker.action.ExportAction" method="export">
+  			<result>/Export.jsp</result>
+  			<result name="error">/Error.jsp</result>
+ 		 </action>
+
+
+ 		 <action name="export" class="com.blocker.action.ExportAction" method="export">
+  			<result>/Export.jsp</result>
+  			<result name="error">/Error.jsp</result>
+ 		 </action>
+
+  		<action name="ApproveRejectRes" class="com.blocker.action.AutoCompleter" method="execute1" >
+  			<result name="success">/Autocompleterapprove.jsp</result>
+ 		 </action>
+
+ 		 <action name="showapprovereject" class="com.blocker.action.ApproveRejectResAction" method="showApproveReject" >
+  			<result name="success">/approveReservation.jsp</result>
+  			<result name="input">/Autocompleterapprove.jsp</result>
+ 		 </action>
+ 		 <action name="reservationdetails" class="com.blocker.action.ApproveRejectResAction" method="approveRejectRes" >
+  			<result name="success">/Approved.jsp</result>
+  			<result name="error">/approveReservation.jsp</result>
+ 		 </action>
+
+ <action name="block" class="com.blocker.action.UserAction" >
+  			<result name="success">/Success.jsp</result>
+  			<result name="error">/UserRes2.jsp</result>
+  			<result name="input">/UserRes2.jsp</result>
+ 		 </action>
+	</package>
+</struts>
